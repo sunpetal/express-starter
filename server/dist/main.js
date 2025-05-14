@@ -6,6 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require("dotenv/config");
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
+const axios_1 = __importDefault(require("axios"));
+const { TRELLO_KEY, TRELLO_TOKEN, TRELLO_BASE_URL } = process.env;
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
@@ -20,3 +22,29 @@ if (process.env.NODE_ENV !== "production") {
     const PORT = process.env.PORT || 3001;
     app.listen(PORT, () => console.log(`🚀 Server listening at http://localhost:${PORT}`));
 }
+// Get basic board info
+app.get("/api/boards/:id", async (req, res) => {
+    const boardId = req.params.id;
+    try {
+        const trelloRes = await axios_1.default.get(`${TRELLO_BASE_URL}/boards/${boardId}`, {
+            params: { key: TRELLO_KEY, token: TRELLO_TOKEN },
+        });
+        res.json(trelloRes.data);
+    }
+    catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
+    }
+});
+// Get cards for a board
+app.get("/api/boards/:id/cards", async (req, res) => {
+    const boardId = req.params.id;
+    try {
+        const trelloRes = await axios_1.default.get(`${TRELLO_BASE_URL}/boards/${boardId}/cards`, { params: { key: TRELLO_KEY, token: TRELLO_TOKEN } });
+        res.json(trelloRes.data);
+    }
+    catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
+    }
+});

@@ -1,6 +1,9 @@
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
+import axios from "axios";
+
+const { TRELLO_KEY, TRELLO_TOKEN, TRELLO_BASE_URL } = process.env;
 
 const app = express();
 app.use(cors());
@@ -21,3 +24,32 @@ if (process.env.NODE_ENV !== "production") {
     console.log(`🚀 Server listening at http://localhost:${PORT}`),
   );
 }
+
+// Get basic board info
+app.get("/api/boards/:id", async (req, res) => {
+  const boardId = req.params.id;
+  try {
+    const trelloRes = await axios.get(`${TRELLO_BASE_URL}/boards/${boardId}`, {
+      params: { key: TRELLO_KEY, token: TRELLO_TOKEN },
+    });
+    res.json(trelloRes.data);
+  } catch (err: any) {
+    console.error(err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Get cards for a board
+app.get("/api/boards/:id/cards", async (req, res) => {
+  const boardId = req.params.id;
+  try {
+    const trelloRes = await axios.get(
+      `${TRELLO_BASE_URL}/boards/${boardId}/cards`,
+      { params: { key: TRELLO_KEY, token: TRELLO_TOKEN } },
+    );
+    res.json(trelloRes.data);
+  } catch (err: any) {
+    console.error(err);
+    res.status(500).json({ error: err.message });
+  }
+});
