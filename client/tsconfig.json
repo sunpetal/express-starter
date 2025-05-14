@@ -1,0 +1,20 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.json",
+  "compilerOptions": {
+    "target": "ESNext", // modern JS target
+    "module": "ESNext", // enable ES-style imports / import.meta
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "strict": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": ["ESNext", "DOM"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "types": ["vite/client"] // to pick up Vite’s env types
+  },
+  "include": ["env.d.ts", "vite.config.ts", "src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue"]
+}
