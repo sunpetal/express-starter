@@ -1,3 +1,9 @@
+<template>
+  <h1>Home</h1>
+  <p>{{ welcome }}</p>
+  <button @click="fetchMessage">Fetch from Server</button>
+</template>
+
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useWelcomeStore } from '@/stores/welcome';
@@ -16,9 +22,3 @@ async function fetchMessage() {
   }
 }
 </script>
-
-<template>
-  <div class="text-red-500">Home</div>
-  <p>{{ welcome }}</p>
-  <button @click="fetchMessage">Fetch from Server</button>
-</template>

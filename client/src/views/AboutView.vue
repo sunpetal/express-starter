@@ -1,9 +1,4 @@
-<script setup lang="ts">
-import TestGrid from '@/components/TestGrid.vue';
-</script>
-
 <template>
-  <div class="">
-    <TestGrid />
-  </div>
+  <h1>About</h1>
+  <p>This is the about page.</p>
 </template>
