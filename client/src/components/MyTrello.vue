@@ -5,8 +5,14 @@ import { Squares2X2Icon, Bars3Icon } from '@heroicons/vue/24/outline';
 import SimpleCards from '@/components/SimpleCards.vue';
 import SimpleList from '@/components/SimpleList.vue';
 
+interface Card {
+  id: string;
+  name: string;
+  url: string;
+}
+
 const viewType = ref<'cards' | 'list'>('cards');
-const cards = ref<{ id: string; name: string }[]>([]);
+const cards = ref<Card[]>([]);
 const BOARD_ID = 'rW0gJRuy';
 
 async function fetchMyCards() {
@@ -22,17 +28,21 @@ onMounted(fetchMyCards);
 </script>
 
 <template>
-  <!-- toggle view buttons -->
+  <!-- toggle buttons -->
   <div class="flex space-x-4 my-4">
     <Squares2X2Icon
       @click="viewType = 'cards'"
-      :class="viewType === 'cards' ? 'text-[#50A9E4]' : 'text-gray-400'"
-      class="w-6 h-6 cursor-pointer"
+      :class="[
+        viewType === 'cards' ? 'text-[#50A9E4]' : 'text-gray-400',
+        'w-6 h-6 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#50A9E4] dark:focus:ring-white',
+      ]"
     />
     <Bars3Icon
       @click="viewType = 'list'"
-      :class="viewType === 'list' ? 'text-[#50A9E4]' : 'text-gray-400'"
-      class="w-6 h-6 cursor-pointer"
+      :class="[
+        viewType === 'list' ? 'text-[#50A9E4]' : 'text-gray-400',
+        'w-6 h-6 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#50A9E4] dark:focus:ring-white',
+      ]"
     />
   </div>
 

@@ -26,7 +26,7 @@ const links = [
           :class="[
             'flex cursor-pointer items-center justify-center rounded-md px-3 py-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2',
             isActive
-              ? 'bg-[#50A9E4] text-white focus:ring-[#2E8ECE]'
+              ? 'bg-[#50A9E4] text-white focus:ring-[#50A9E4]'
               : 'text-gray-400 hover:text-gray-500 dark:text-gray-300 dark:hover:text-white focus:ring-[#50A9E4] dark:focus:ring-white',
           ]"
         >

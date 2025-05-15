@@ -1,5 +1,5 @@
 <script setup lang="ts"></script>
 
 <template>
-  <p class="flex text-center">Clients</p>
+  <p class="p-4 text-gray-900 dark:text-white">Clients</p>
 </template>

@@ -17,7 +17,20 @@ async function fetchMessage() {
 </script>
 
 <template>
-  <h1>Home</h1>
-  <p>{{ welcome }}</p>
-  <button @click="fetchMessage">Fetch from Server</button>
+  <div class="text-gray-900 p-4 dark:text-white">
+    <h1 class="text-2xl font-semibold mb-2">Newsfeed</h1>
+
+    <!-- monospaced, a bit larger and with some breathing room -->
+    <p class="font-mono text-lg mb-4">
+      {{ welcome }}
+    </p>
+
+    <!-- styled button with your primary blue, focus ring, hover state -->
+    <button
+      @click="fetchMessage"
+      class="inline-flex cursor-pointer items-center px-4 py-2 bg-[#50A9E4] text-white rounded-md shadow-sm hover:bg-[#2E8ECE] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#50A9E4] dark:focus:ring-white"
+    >
+      Fetch from Server
+    </button>
+  </div>
 </template>

@@ -13,20 +13,18 @@ const props = defineProps<{ items: Card[] }>();
 <template>
   <ul
     role="list"
-    class="divide-y divide-gray-100 overflow-hidden bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl"
+    class="divide-y divide-gray-100 dark:divide-gray-700 bg-white/50 dark:bg-gray-900/50 border border-[#50A9E4]/30 dark:border-[#6EC0FF]/30 shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl backdrop-blur-sm overflow-hidden"
   >
     <li v-for="card in props.items" :key="card.id">
       <a
         :href="card.url"
         target="_blank"
         rel="noopener noreferrer"
-        class="relative hover:border-[#50A9E4] hover:border-l flex justify-between gap-x-6 px-4 py-5 hover:bg-gray-50 sm:px-6"
+        class="flex items-center px-6 py-4 /* spacing so text never hugs edge */ hover:bg-gray-50 dark:hover:bg-gray-800 /* subtle row hover */ focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#50A9E4] dark:focus:ring-white"
       >
-        <div class="min-w-0 flex-auto">
-          <p class="text-sm font-semibold text-gray-900">
-            {{ card.name }}
-          </p>
-        </div>
+        <p class="flex-1 text-sm font-semibold text-gray-900 dark:text-gray-200">
+          {{ card.name }}
+        </p>
       </a>
     </li>
   </ul>

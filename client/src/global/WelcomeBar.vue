@@ -48,7 +48,7 @@ const notifications = [
               <MenuButton
                 type="button"
                 aria-label="View notifications"
-                class="relative rounded-full p-1 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 text-gray-400 hover:text-gray-500 focus:ring-[#50A9E4] dark:hover:text-white dark:focus:ring-white dark:focus:ring-offset-gray-800"
+                class="relative rounded-full p-1 cursor-pointer text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#50A9E4] dark:hover:text-white dark:focus:ring-white dark:focus:ring-offset-gray-800"
               >
                 <span class="sr-only">View notifications</span>
                 <BellIcon class="h-6 w-6" aria-hidden="true" />
@@ -62,7 +62,7 @@ const notifications = [
                 leave-to-class="transform opacity-0 scale-95"
               >
                 <MenuItems
-                  class="absolute right-0 z-50 mt-2 w-80 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 focus:outline-none dark:bg-gray-800"
+                  class="absolute right-0 z-50 mt-2 w-80 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 divide-y divide-gray-100 focus:outline-none dark:bg-gray-800 dark:divide-gray-700"
                 >
                   <!-- header -->
                   <div
@@ -107,13 +107,13 @@ const notifications = [
                   <div class="px-4 py-3 grid grid-cols-2 gap-2">
                     <a
                       href="#"
-                      class="flex w-full items-center justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:outline-offset-0"
+                      class="flex w-full items-center justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:outline-offset-0 dark:bg-gray-800 dark:text-gray-200 dark:ring-gray-600 dark:hover:bg-gray-700"
                     >
                       View all
                     </a>
                     <a
                       href="#"
-                      class="flex w-full items-center justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:outline-offset-0"
+                      class="flex w-full items-center justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:outline-offset-0 dark:bg-gray-800 dark:text-gray-200 dark:ring-gray-600 dark:hover:bg-gray-700"
                     >
                       Clear all
                     </a>
@@ -126,11 +126,11 @@ const notifications = [
             <Menu as="div" class="relative">
               <div>
                 <MenuButton
-                  class="cursor-pointer relative flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[#50A9E4] focus:ring-offset-2"
+                  class="relative rounded-full p-1 bg-white text-gray-400 hover:text-gray-500 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#50A9E4] focus:ring-offset-2 dark:hover:text-white dark:focus:ring-white dark:focus:ring-offset-gray-800"
                 >
                   <span class="absolute -inset-1.5" />
                   <span class="sr-only">Open user menu</span>
-                  <img class="size-8 rounded-full" src="../assets/beachshore.jpg" alt="" />
+                  <img class="h-8 w-8 rounded-full" src="../assets/beachshore.jpg" alt="" />
                 </MenuButton>
               </div>
               <transition
@@ -142,17 +142,18 @@ const notifications = [
                 leave-to-class="transform opacity-0 scale-95"
               >
                 <MenuItems
-                  class="absolute right-0 z-50 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 focus:outline-none"
+                  class="absolute right-0 z-50 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 divide-y divide-gray-100 focus:outline-none dark:bg-gray-800 dark:divide-gray-700"
                 >
                   <MenuItem v-for="item in userNavigation" :key="item.name" v-slot="{ active }">
                     <a
                       :href="item.href"
                       :class="[
-                        active ? 'bg-gray-100 outline-none' : '',
-                        'block px-4 py-2 text-sm text-gray-700',
+                        active ? 'bg-gray-100 dark:bg-gray-700 outline-none' : '',
+                        'block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700',
                       ]"
-                      >{{ item.name }}</a
                     >
+                      {{ item.name }}
+                    </a>
                   </MenuItem>
                 </MenuItems>
               </transition>
