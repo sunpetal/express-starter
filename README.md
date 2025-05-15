@@ -1,25 +1,28 @@
-# Vue 3 + TypeScript + Vite
+Getting Started
 
-Branding Colors Ideas
-backgrounds: bg-white dark:bg-gray-900
-text: text-gray-900 dark:text-white (other varying shades of gray)
-primary: #50A9E4 (Judy branding email)
-secondary: #2E8ECE, #6EC0FF (blue compliments for hovers and outlines)
-accent: #B45309 (primary orange accent)
-secondary accents: #92400E, #D97706 (orange compliments for hovers and outlines)
+First, clone this repository and enter its folder:
 
-primary color example:
-<button
-type="submit"
-class="flex w-full items-center justify-center rounded-md bg-[#50A9E4] px-3 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#2E8ECE] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2E8ECE] dark:hover:bg-[#6EC0FF] dark:focus-visible:outline-[#6EC0FF]"
+git clone <repo-url>
+cd <repo-directory>
 
-> Subscribe
-> </button>
+1. Client Setup
 
-accent color example:
-<button
-type="submit"
-class="flex w-full items-center justify-center rounded-md bg-[#B45309] px-3 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#92400E] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#92400E] dark:hover:bg-[#D97706] dark:focus-visible:outline-[#D97706]"
+Open your first terminal and:
 
-> Subscribe
-> </button>
+cd client
+npm install
+npm run build # Compile assets for production
+npm run dev # Start the client app in development mode
+
+Once that’s running, you’ll typically see the client at http://localhost:3000 (or whatever port Vite reports).
+
+2. Server Setup
+
+Open a second terminal and:
+
+cd server
+npm install
+npm run build # Transpile/prepare server code
+npm run dev # Start the server in development mode
+
+By default the server should run at http://localhost:3001.
