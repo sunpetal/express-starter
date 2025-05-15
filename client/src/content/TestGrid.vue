@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { ArrowTopRightOnSquareIcon } from '@heroicons/vue/24/outline';
 import AllTrello from '@/components/AllTrello.vue';
-import MyTrello from '@/components/MyTrello.vue';
+import MyWork from '@/views/MyWork.vue';
 import Message from '@/components/Message.vue';
+import Projects from '@/views/Projects.vue';
+import Planning from '@/views/Planning.vue';
+import Clients from '@/views/Clients.vue';
 </script>
 
 <template>
@@ -26,7 +29,7 @@ import Message from '@/components/Message.vue';
           class="h-5 w-5 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"
         />
       </router-link>
-      <MyTrello />
+      <MyWork />
     </div>
 
     <!-- 2: NEWSFEED (no link) -->
@@ -51,7 +54,7 @@ import Message from '@/components/Message.vue';
           class="h-5 w-5 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"
         />
       </router-link>
-      <AllTrello />
+      <Projects />
     </div>
 
     <!-- 4: PLANNING -->
@@ -68,7 +71,7 @@ import Message from '@/components/Message.vue';
           class="h-5 w-5 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"
         />
       </router-link>
-      <!-- planning content -->
+      <Planning />
     </div>
 
     <!-- 5: CLIENTS -->
@@ -85,7 +88,7 @@ import Message from '@/components/Message.vue';
           class="h-5 w-5 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"
         />
       </router-link>
-      <!-- client content -->
+      <Clients />
     </div>
   </div>
 </template>

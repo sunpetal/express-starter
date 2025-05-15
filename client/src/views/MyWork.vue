@@ -3,7 +3,8 @@ import MyTrello from '@/components/MyTrello.vue';
 </script>
 
 <template>
-  <div class="">
+  <div class="flex flex-col">
+    <p>My Work</p>
     <MyTrello />
   </div>
 </template>
