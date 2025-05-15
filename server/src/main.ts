@@ -53,3 +53,28 @@ app.get("/api/boards/:id/cards", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
+// Get only *your* cards on a board
+app.get("/api/boards/:id/my-cards", async (req, res) => {
+  const boardId = req.params.id;
+  try {
+    // Trello docs: GET /1/members/me/cards?key=…&token=…&idBoards=…
+    const trelloRes = await axios.get(
+      `${TRELLO_BASE_URL}/members/me/cards`,
+      {
+        params: {
+          key: TRELLO_KEY,
+          token: TRELLO_TOKEN,
+          idBoards: boardId,
+        },
+      }
+    );
+
+    // This already filters to only cards where *you* are in idMembers
+    res.json(trelloRes.data);
+  } catch (err: any) {
+    console.error("Error fetching my cards:", err);
+    res.status(500).json({ error: err.message });
+  }
+});
+

@@ -9,23 +9,20 @@ const viewType = ref<'cards' | 'list'>('cards');
 const cards = ref<{ id: string; name: string }[]>([]);
 const BOARD_ID = 'rW0gJRuy';
 
-async function fetchCards() {
+async function fetchMyCards() {
   try {
-    const { data } = await api.get(`/boards/${BOARD_ID}/cards`);
+    const { data } = await api.get(`/boards/${BOARD_ID}/my-cards`);
     cards.value = data;
   } catch (e) {
-    console.error('Could not load Trello cards', e);
+    console.error('Could not load your Trello cards', e);
   }
 }
 
-onMounted(fetchCards);
+onMounted(fetchMyCards);
 </script>
 
 <template>
-  <h1>About</h1>
-  <p>This is the about page.</p>
-
-  <!-- toggle buttons -->
+  <!-- toggle view buttons -->
   <div class="flex space-x-4 my-4">
     <Squares2X2Icon
       @click="viewType = 'cards'"
@@ -39,7 +36,7 @@ onMounted(fetchCards);
     />
   </div>
 
-  <!-- conditional render -->
+  <!-- render as cards or list -->
   <div class="m-8">
     <SimpleCards v-if="viewType === 'cards'" :items="cards" />
     <SimpleList v-else :items="cards" />
