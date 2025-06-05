@@ -1,12 +1,16 @@
+<!-- src/components/WelcomeBar.vue -->
 <script setup lang="ts">
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue';
 import { BellIcon, Cog6ToothIcon, UserIcon } from '@heroicons/vue/24/outline';
-import PalmTree from '../assets/PalmTree.vue';
+import PalmTree from '@/assets/PalmTree.vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const userNavigation = [
   { name: 'Your Profile', href: '#' },
   { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: '#' },
+  // We’ll handle “Sign out” explicitly via a router.push to /login
 ];
 
 const notifications = [
@@ -144,16 +148,43 @@ const notifications = [
                 <MenuItems
                   class="absolute right-0 z-50 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 divide-y divide-gray-100 focus:outline-none dark:bg-gray-800 dark:divide-gray-700"
                 >
-                  <MenuItem v-for="item in userNavigation" :key="item.name" v-slot="{ active }">
+                  <!-- “Your Profile” -->
+                  <MenuItem v-slot="{ active }">
                     <a
-                      :href="item.href"
                       :class="[
                         active ? 'bg-gray-100 dark:bg-gray-700 outline-none' : '',
                         'block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700',
                       ]"
+                      href="#"
                     >
-                      {{ item.name }}
+                      Your Profile
                     </a>
+                  </MenuItem>
+
+                  <!-- “Settings” -->
+                  <MenuItem v-slot="{ active }">
+                    <a
+                      :class="[
+                        active ? 'bg-gray-100 dark:bg-gray-700 outline-none' : '',
+                        'block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700',
+                      ]"
+                      href="#"
+                    >
+                      Settings
+                    </a>
+                  </MenuItem>
+
+                  <!-- “Sign out” -->
+                  <MenuItem v-slot="{ active }">
+                    <button
+                      @click="router.push({ name: 'login' })"
+                      :class="[
+                        active ? 'bg-gray-100 dark:bg-gray-700 outline-none' : '',
+                        'w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700',
+                      ]"
+                    >
+                      Sign out
+                    </button>
                   </MenuItem>
                 </MenuItems>
               </transition>

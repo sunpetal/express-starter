@@ -1,14 +1,25 @@
+<!-- src/views/Login.vue -->
 <script setup lang="ts">
-import beachImage from '../assets/beachshore.jpg';
+import { useRouter } from 'vue-router';
+import beachImage from '@/assets/beachshore.jpg';
+
+const router = useRouter();
+
+function onSubmit() {
+  // No real credentials—just navigate back to Dashboard
+  router.push({ name: 'dashboard' });
+}
 </script>
 
 <template>
   <div
-    class="relative flex items-center justify-center h-screen w-screen bg-cover bg-center"
+    class="relative flex items-center justify-center h-full w-full bg-cover bg-center"
     :style="{ backgroundImage: `url(${beachImage})` }"
   >
+    <!-- semi-transparent overlay -->
     <div class="absolute inset-0 bg-black/30 dark:bg-black/60"></div>
 
+    <!-- Login panel -->
     <div class="relative text-center text-white">
       <div class="text-3xl md:text-4xl font-mono typing mb-2 text-blue-300 dark:text-teal-300">
         Welcome to...
@@ -24,13 +35,13 @@ import beachImage from '../assets/beachshore.jpg';
         A Safe Harbor for Meaningful Work.
       </p>
 
-      <!-- Login Form UI Only -->
+      <!-- Login Form (no real logic) -->
       <div
         class="mt-8 bg-white/20 dark:bg-gray-800 backdrop-blur-lg p-6 rounded-xl shadow-xl w-80 md:w-96 border border-white/20 dark:border-gray-700"
       >
         <h2 class="text-xl font-semibold mb-6 text-teal-300 dark:text-blue-400">Sign In</h2>
 
-        <!-- Email Input -->
+        <!-- Email -->
         <div class="mb-4 text-left">
           <label for="email" class="block text-sm font-medium text-blue-200 dark:text-gray-300">
             Email
@@ -45,7 +56,7 @@ import beachImage from '../assets/beachshore.jpg';
           />
         </div>
 
-        <!-- Password Input -->
+        <!-- Password -->
         <div class="mb-4 text-left">
           <label for="password" class="block text-sm font-medium text-blue-200 dark:text-gray-300">
             Password
@@ -60,17 +71,18 @@ import beachImage from '../assets/beachshore.jpg';
           />
         </div>
 
-        <!-- Login Button (No Logic) -->
+        <!-- Login button just pushes to Dashboard -->
         <button
+          @click="onSubmit"
           class="w-full cursor-pointer p-3 text-lg font-semibold text-white bg-teal-400 dark:bg-blue-500 rounded-lg shadow-md hover:bg-teal-500 dark:hover:bg-blue-600 transition-all hover:shadow-teal-500/50 dark:hover:shadow-blue-500/50"
         >
           Login
         </button>
 
-        <!-- Sign Up Link -->
+        <!-- Sign Up link (no change) -->
         <p class="mt-4 text-sm text-blue-200 dark:text-gray-400">
-          Don't have an account?
-          <a href="#" class="text-teal-300 dark:text-blue-400 hover:underline"> Sign up </a>
+          Don’t have an account?
+          <a href="#" class="text-teal-300 dark:text-blue-400 hover:underline">Sign up</a>
         </p>
       </div>
     </div>
