@@ -1,10 +1,18 @@
 <script setup lang="ts">
+import {
+  ClipboardDocumentListIcon,
+  Squares2X2Icon,
+  HomeIcon,
+  UsersIcon,
+  ChartBarIcon
+} from '@heroicons/vue/24/solid'
+
 const links = [
-  { to: '/assignments', label: 'Assignments' },
-  { to: '/masterview', label: 'Master View' },
-  { to: '/', label: 'Dashboard' }, // Centered item
-  { to: '/teampulse', label: 'Team Pulse' },
-  { to: '/metrics', label: 'Metrics' },
+  { to: '/assignments', label: 'Assignments', icon: ClipboardDocumentListIcon },
+  { to: '/masterview', label: 'Master View', icon: Squares2X2Icon },
+  { to: '/', label: 'Dashboard', icon: HomeIcon },
+  { to: '/teampulse', label: 'Team Pulse', icon: UsersIcon },
+  { to: '/metrics', label: 'Metrics', icon: ChartBarIcon },
 ];
 </script>
 
@@ -35,7 +43,14 @@ const links = [
                 : 'text-gray-600 hover:text-[#50A9E4] dark:text-gray-300 dark:hover:text-[#48CFAD]',
             ]"
           >
-            {{ link.label }}
+            <!-- Show icon on small screens -->
+            <component
+              :is="link.icon"
+              class="w-6 h-6 md:hidden"
+              aria-hidden="true"
+            />
+            <!-- Show label on md+ screens -->
+            <span class="hidden md:inline">{{ link.label }}</span>
           </button>
         </router-link>
       </div>
