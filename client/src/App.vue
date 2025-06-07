@@ -1,4 +1,3 @@
-<!-- src/App.vue -->
 <script setup lang="ts">
 import TopBar from '@/global/TopBar.vue';
 import WelcomeBar from '@/global/WelcomeBar.vue';
@@ -7,28 +6,31 @@ import Background from '@/global/Background.vue';
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
+
+// Precise height calculations
+const topBarHeight = '2rem'; // 32px
+const welcomeBarHeight = '4rem'; // 64px
+const footerHeight = '4rem'; // 64px
+const totalUsedHeight = `calc(${topBarHeight} + ${welcomeBarHeight} + ${footerHeight})`;
 </script>
 
 <template>
-  <div class="h-screen flex flex-col bg-white dark:bg-gray-900 overflow-hidden relative isolate">
-    <!-- background sits under all content -->
-    <Background />
+  <div class="fixed inset-0 flex flex-col bg-white dark:bg-gray-900 overflow-hidden">
+    <Background class="fixed inset-0 -z-10" />
 
-    <!-- TopBar stays visible always -->
-    <TopBar />
+    <!-- Fixed header section -->
+    <div class="flex-none">
+      <TopBar class="h-8" />
+      <WelcomeBar class="h-12" />
+    </div>
 
-    <!-- WelcomeBar stays visible always -->
-    <header class="flex-none z-10">
-      <WelcomeBar />
-    </header>
-
-    <!-- main section: will hold either Dashboard (etc.) or Login -->
-    <main class="flex-1 flex flex-col min-h-0 overflow-auto relative">
-      <router-view />
+    <!-- Exactly sized content area -->
+    <main class="flex-1 overflow-hidden" :style="`height: calc(100vh - ${totalUsedHeight});`">
+      <router-view class="h-full" />
     </main>
 
-    <!-- Footer: only show when NOT on /login -->
-    <footer v-if="route.name !== 'login'" class="flex-none z-10">
+    <!-- Fixed footer -->
+    <footer v-if="route.name !== 'login'" class="flex-none h-16">
       <FooterNav />
     </footer>
   </div>

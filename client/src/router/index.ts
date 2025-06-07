@@ -1,14 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import Login from '@/global/Login.vue';
 import Dashboard from '@/views/Dashboard.vue';
-import MyWork from '@/views/MyWork.vue';
-import Planning from '@/views/Planning.vue';
-import Login from '@/views/Login.vue';
+import Assignments from '@/views/Assignments.vue';
+import MasterView from '@/views/MasterView.vue';
+import TeamPulse from '@/views/TeamPulse.vue';
+import Metrics from '@/views/Metrics.vue';
 
 const routes = [
-  { path: '/', name: 'dashboard', component: Dashboard },
-  { path: '/mywork', name: 'mywork', component: MyWork },
-  { path: '/planning', name: 'planning', component: Planning },
   { path: '/login', name: 'login', component: Login },
+  { path: '/', name: 'dashboard', component: Dashboard },
+  { path: '/assignments', name: 'assignments', component: Assignments },
+  { path: '/masterview', name: 'masterview', component: MasterView },
+  { path: '/teampulse', name: 'teampulse', component: TeamPulse },
+  { path: '/metrics', name: 'metrics', component: Metrics },
 ];
 
 const router = createRouter({
