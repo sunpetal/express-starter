@@ -4,8 +4,8 @@ import {
   Squares2X2Icon,
   HomeIcon,
   UsersIcon,
-  ChartBarIcon
-} from '@heroicons/vue/24/solid'
+  ChartBarIcon,
+} from '@heroicons/vue/24/solid';
 
 const links = [
   { to: '/assignments', label: 'Assignments', icon: ClipboardDocumentListIcon },
@@ -44,11 +44,7 @@ const links = [
             ]"
           >
             <!-- Show icon on small screens -->
-            <component
-              :is="link.icon"
-              class="w-6 h-6 md:hidden"
-              aria-hidden="true"
-            />
+            <component :is="link.icon" class="w-6 h-6 md:hidden" aria-hidden="true" />
             <!-- Show label on md+ screens -->
             <span class="hidden md:inline">{{ link.label }}</span>
           </button>
