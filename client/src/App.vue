@@ -19,14 +19,14 @@ const totalUsedHeight = `calc(${topBarHeight} + ${welcomeBarHeight} + ${footerHe
     <Background class="fixed inset-0 -z-10" />
 
     <!-- Fixed header section -->
-    <div class="flex-none">
+    <div class="flex-none z-10">
       <TopBar class="h-8" />
       <WelcomeBar class="h-12" />
     </div>
 
     <!-- Exactly sized content area -->
     <main
-      class="flex-1 overflow-y-scroll lg:overflow-hidden"
+      class="flex-1 overflow-y-auto lg:overflow-hidden relative z-0"
       :style="`height: calc(100vh - ${totalUsedHeight});`"
     >
       <router-view class="h-full" />
