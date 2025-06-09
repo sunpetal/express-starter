@@ -16,7 +16,7 @@ import {
 
 <template>
   <div
-    class="p-4 w-full grid grid-cols-1 gap-4 pb-4 lg:grid-cols-6 lg:grid-rows-[auto_auto_minmax(0,1fr)_auto] lg:h-full lg:pb-4"
+    class="p-4 w-full grid grid-cols-1 gap-4 pb-4 lg:grid-cols-6 lg:grid-rows-[minmax(180px,200px)_auto_minmax(0,1fr)_minmax(200px,220px)] lg:h-full lg:pb-4"
     role="main"
     aria-label="Dashboard overview"
   >
