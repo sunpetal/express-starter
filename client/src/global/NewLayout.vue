@@ -125,7 +125,6 @@ import {
       aria-label="My tasks"
     >
       <div class="flex flex-col p-4 h-full">
-        <!-- Header Section -->
         <div class="flex items-center justify-between">
           <div class="inline-flex items-center gap-2">
             <BriefcaseIcon class="h-8 w-8 text-[#50A9E4] dark:text-[#48CFAD]" aria-hidden="true" />
@@ -139,11 +138,11 @@ import {
           </button>
         </div>
 
-        <!-- Task List -->
         <div class="space-y-3 mt-4" role="list" aria-label="Task list">
-          <button
+          <a
+            href="#"
+            role="button"
             class="rounded-xl bg-gray-200/30 dark:bg-gray-700/30 w-full flex items-center p-3 hover:bg-[#6EC0FF]/20 dark:hover:bg-[#48CFAD]/30 transition-colors focus:outline-none focus:ring-2 focus:ring-[#50A9E4] dark:focus:ring-[#48CFAD]"
-            role="listitem"
             aria-labelledby="task-1-title task-1-due"
           >
             <div
@@ -155,11 +154,12 @@ import {
               </p>
               <p id="task-1-due" class="text-xs text-gray-600 dark:text-gray-400">Due tomorrow</p>
             </div>
-          </button>
+          </a>
 
-          <button
+          <a
+            href="#"
+            role="button"
             class="rounded-xl bg-gray-200/30 dark:bg-gray-700/30 w-full flex items-center p-3 hover:bg-[#6EC0FF]/20 dark:hover:bg-[#48CFAD]/30 transition-colors focus:outline-none focus:ring-2 focus:ring-[#50A9E4] dark:focus:ring-[#48CFAD]"
-            role="listitem"
             aria-labelledby="task-2-title task-2-due"
           >
             <div
@@ -171,7 +171,7 @@ import {
               </p>
               <p id="task-2-due" class="text-xs text-gray-600 dark:text-gray-400">Due in 3 days</p>
             </div>
-          </button>
+          </a>
         </div>
       </div>
     </div>
@@ -183,7 +183,6 @@ import {
       aria-label="My clients"
     >
       <div class="flex flex-col p-4 h-full">
-        <!-- Header Section -->
         <div class="flex items-center justify-between">
           <div class="inline-flex items-center gap-2">
             <BuildingOffice2Icon
@@ -200,11 +199,11 @@ import {
           </button>
         </div>
 
-        <!-- Client List -->
         <div class="space-y-3 mt-4" role="list" aria-label="Client list">
-          <button
+          <a
+            href="#"
+            role="button"
             class="rounded-xl bg-gray-200/30 dark:bg-gray-700/30 w-full flex items-center p-3 hover:bg-[#6EC0FF]/20 dark:hover:bg-[#48CFAD]/30 transition-colors focus:outline-none focus:ring-2 focus:ring-[#50A9E4] dark:focus:ring-[#48CFAD]"
-            role="listitem"
             aria-labelledby="client-1-title client-1-stats"
           >
             <div class="flex flex-col gap-1 text-left">
@@ -220,11 +219,12 @@ import {
                 <p class="text-xs text-gray-600 dark:text-gray-400">3 members</p>
               </div>
             </div>
-          </button>
+          </a>
 
-          <button
+          <a
+            href="#"
+            role="button"
             class="rounded-xl bg-gray-200/30 dark:bg-gray-700/30 w-full flex items-center p-3 hover:bg-[#6EC0FF]/20 dark:hover:bg-[#48CFAD]/30 transition-colors focus:outline-none focus:ring-2 focus:ring-[#50A9E4] dark:focus:ring-[#48CFAD]"
-            role="listitem"
             aria-labelledby="client-2-title client-2-stats"
           >
             <div class="flex flex-col gap-1 text-left">
@@ -240,7 +240,7 @@ import {
                 <p class="text-xs text-gray-600 dark:text-gray-400">5 members</p>
               </div>
             </div>
-          </button>
+          </a>
         </div>
       </div>
     </div>
@@ -252,7 +252,6 @@ import {
       aria-label="Planning items"
     >
       <div class="flex flex-col p-4 h-full">
-        <!-- Header Section -->
         <div class="flex items-center justify-between">
           <div class="inline-flex items-center gap-2">
             <LightBulbIcon class="h-8 w-8 text-[#50A9E4] dark:text-[#48CFAD]" aria-hidden="true" />
@@ -266,11 +265,11 @@ import {
           </button>
         </div>
 
-        <!-- Planning List -->
         <div class="space-y-3 mt-4" role="list" aria-label="Planning items list">
-          <button
+          <a
+            href="#"
+            role="button"
             class="border-l-4 border-[#50A9E4] dark:border-[#48CFAD] rounded-r-xl w-full flex items-center p-3 hover:bg-[#6EC0FF]/20 dark:hover:bg-[#48CFAD]/30 transition-colors focus:outline-none focus:ring-2 focus:ring-[#50A9E4] dark:focus:ring-[#48CFAD]"
-            role="listitem"
             aria-labelledby="plan-1-title plan-1-progress"
           >
             <div class="text-left flex-grow">
@@ -288,13 +287,15 @@ import {
                   aria-valuemin="0"
                   aria-valuemax="100"
                   style="width: 65%"
-                />
+                ></div>
               </div>
             </div>
-          </button>
-          <button
+          </a>
+
+          <a
+            href="#"
+            role="button"
             class="border-l-4 border-[#50A9E4] dark:border-[#48CFAD] rounded-r-xl w-full flex items-center p-3 hover:bg-[#6EC0FF]/20 dark:hover:bg-[#48CFAD]/30 transition-colors focus:outline-none focus:ring-2 focus:ring-[#50A9E4] dark:focus:ring-[#48CFAD]"
-            role="listitem"
             aria-labelledby="plan-2-title plan-2-date"
           >
             <div class="text-left flex-grow">
@@ -305,7 +306,7 @@ import {
                 Scheduled for Jan 15, 2025
               </p>
             </div>
-          </button>
+          </a>
         </div>
       </div>
     </div>
@@ -317,7 +318,6 @@ import {
       aria-label="Subscription services"
     >
       <div class="flex flex-col p-4 h-full">
-        <!-- Header Section -->
         <div class="flex items-center justify-between">
           <div class="inline-flex items-center gap-2">
             <RssIcon class="h-8 w-8 text-[#50A9E4] dark:text-[#48CFAD]" aria-hidden="true" />
@@ -331,16 +331,15 @@ import {
           </button>
         </div>
 
-        <!-- Subscription Cards -->
         <div
           class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-4"
           role="list"
           aria-label="Subscription services list"
         >
-          <!-- Design Weekly -->
-          <button
+          <a
+            href="#"
+            role="button"
             class="rounded-xl border border-[#50A9E4]/30 dark:border-[#48CFAD]/30 flex flex-col p-4 hover:bg-[#6EC0FF]/20 dark:hover:bg-[#48CFAD]/30 transition-colors focus:outline-none focus:ring-2 focus:ring-[#50A9E4] dark:focus:ring-[#48CFAD]"
-            role="listitem"
             aria-labelledby="sub-1-title sub-1-desc"
           >
             <div
@@ -354,12 +353,12 @@ import {
             <p id="sub-1-desc" class="text-sm text-gray-600 dark:text-gray-400 text-left">
               Latest design trends and tips
             </p>
-          </button>
+          </a>
 
-          <!-- Dev Updates -->
-          <button
+          <a
+            href="#"
+            role="button"
             class="rounded-xl border border-[#50A9E4]/30 dark:border-[#48CFAD]/30 flex flex-col p-4 hover:bg-[#6EC0FF]/20 dark:hover:bg-[#48CFAD]/30 transition-colors focus:outline-none focus:ring-2 focus:ring-[#50A9E4] dark:focus:ring-[#48CFAD]"
-            role="listitem"
             aria-labelledby="sub-2-title sub-2-desc"
           >
             <div
@@ -373,12 +372,12 @@ import {
             <p id="sub-2-desc" class="text-sm text-gray-600 dark:text-gray-400 text-left">
               Programming news and tutorials
             </p>
-          </button>
+          </a>
 
-          <!-- Analytics Pro -->
-          <button
+          <a
+            href="#"
+            role="button"
             class="rounded-xl border border-[#50A9E4]/30 dark:border-[#48CFAD]/30 flex flex-col p-4 hover:bg-[#6EC0FF]/20 dark:hover:bg-[#48CFAD]/30 transition-colors focus:outline-none focus:ring-2 focus:ring-[#50A9E4] dark:focus:ring-[#48CFAD]"
-            role="listitem"
             aria-labelledby="sub-3-title sub-3-desc"
           >
             <div
@@ -392,12 +391,12 @@ import {
             <p id="sub-3-desc" class="text-sm text-gray-600 dark:text-gray-400 text-left">
               Data insights and reports
             </p>
-          </button>
+          </a>
 
-          <!-- Team Digest -->
-          <button
+          <a
+            href="#"
+            role="button"
             class="rounded-xl border border-[#50A9E4]/30 dark:border-[#48CFAD]/30 flex flex-col p-4 hover:bg-[#6EC0FF]/20 dark:hover:bg-[#48CFAD]/30 transition-colors focus:outline-none focus:ring-2 focus:ring-[#50A9E4] dark:focus:ring-[#48CFAD]"
-            role="listitem"
             aria-labelledby="sub-4-title sub-4-desc"
           >
             <div
@@ -411,7 +410,7 @@ import {
             <p id="sub-4-desc" class="text-sm text-gray-600 dark:text-gray-400 text-left">
               Team updates and announcements
             </p>
-          </button>
+          </a>
         </div>
       </div>
     </div>
