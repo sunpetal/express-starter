@@ -9,10 +9,11 @@ import {
 
 const links = [
   { to: '/assignments', label: 'Assignments', icon: ClipboardDocumentListIcon },
-  { to: '/masterview', label: 'Master View', icon: Squares2X2Icon },
+  { to: '/masterviewlr', label: 'Master VLR', icon: Squares2X2Icon },
   { to: '/', label: 'Dashboard', icon: HomeIcon },
+  { to: '/masterviewtb', label: 'Master VTB', icon: Squares2X2Icon },
   { to: '/teampulse', label: 'Team Pulse', icon: UsersIcon },
-  { to: '/metrics', label: 'Metrics', icon: ChartBarIcon },
+  //{ to: '/metrics', label: 'Metrics', icon: ChartBarIcon },
 ];
 </script>
 
