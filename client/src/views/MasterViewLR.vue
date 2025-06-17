@@ -140,22 +140,22 @@ const sections: {
 </script>
 
 <template>
-  <div class="p-4 w-full h-full flex flex-col lg:pb-4" role="main">
+  <div class="p-4 w-full h-full flex flex-col overflow-hidden lg:pb-4" role="main">
     <!-- SEARCH & FILTER AREA -->
-    <div class="flex flex-col border flex-shrink-0">
-      <div class="inline-flex items-center justify-between border">
-        <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Tasks & Boards</h2>
-        <button type="button" class="inline-flex items-center border">
+    <div class="flex flex-col gap-2 flex-shrink-0">
+      <div class="inline-flex items-center justify-between">
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white">All Tasks & Boards</h2>
+        <button type="button" class="inline-flex gap-1 items-center">
           <PlusIcon class="h-4 w-4" aria-hidden="true" />
           Add New
         </button>
       </div>
-      <div class="inline-flex items-center border">
-        <div class="inline-flex items-center w-full">
+      <div class="inline-flex gap-4 items-center">
+        <div class="inline-flex gap-2 p-1 items-center w-full border">
           <MagnifyingGlassIcon class="h-4 w-4" aria-hidden="true" />
           <input type="search" name="search" aria-label="Search" placeholder="Search" />
         </div>
-        <button type="button">
+        <button type="button" class="">
           <ArrowsUpDownIcon class="h-4 w-4" />
         </button>
       </div>
@@ -163,7 +163,7 @@ const sections: {
         <button
           type="button"
           @click="toggleFilter('tasks')"
-          :class="activeFilters.includes('tasks') ? 'border bg-blue-100' : 'border opacity-50'"
+          :class="activeFilters.includes('tasks') ? 'border bg-gray-100' : 'border opacity-50'"
           class="px-2 py-1"
         >
           Tasks
@@ -171,7 +171,7 @@ const sections: {
         <button
           type="button"
           @click="toggleFilter('boards')"
-          :class="activeFilters.includes('boards') ? 'border bg-blue-100' : 'border opacity-50'"
+          :class="activeFilters.includes('boards') ? 'border bg-gray-100' : 'border opacity-50'"
           class="px-2 py-1"
         >
           Boards
@@ -179,12 +179,19 @@ const sections: {
       </div>
     </div>
 
-    <!-- TASKS & BOARDS AREA (now flex-row!) -->
-    <div class="flex-1 flex flex-row gap-4 mt-4">
+    <!-- TASKS & BOARDS AREA -->
+    <div class="flex-1 flex flex-row gap-4 mt-4 overflow-hidden">
       <template v-for="section in sections" :key="section.key">
         <div
           v-if="activeFilters.includes(section.key)"
-          class="flex-1 flex flex-col border overflow-hidden"
+          :class="[
+            'flex flex-col border overflow-hidden transition-all duration-300 ease-in-out',
+            activeFilters.length === 1
+              ? 'basis-full'
+              : section.key === 'tasks'
+                ? 'basis-2/3'
+                : 'basis-1/3',
+          ]"
         >
           <div class="flex items-center gap-2 p-2 border-b">
             <component :is="section.icon" class="h-8 w-8 text-[#50A9E4] dark:text-[#48CFAD]" />
@@ -194,7 +201,15 @@ const sections: {
             </h2>
           </div>
           <div class="flex-1 overflow-y-auto p-2">
-            <div class="border grid grid-cols-1 sm:grid-cols-2 gap-2" role="list">
+            <div
+              :class="[
+                'gap-2 grid',
+                section.key === 'tasks'
+                  ? 'grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'
+                  : 'grid-cols-1',
+              ]"
+              role="list"
+            >
               <template v-if="section.key === 'tasks'">
                 <a
                   v-for="item in section.items"
@@ -281,5 +296,11 @@ const sections: {
     opacity: 1;
     transform: translateY(0);
   }
+}
+html,
+body,
+#app {
+  height: 100%;
+  overflow: hidden;
 }
 </style>
